@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{amsmath}
+%\usepackage{algpseudocode}
+\begin{document}
+
+\textbf{Question 1a.}
+
+Conditions:
+\begin{itemize}
+    \item $a,b,q,r$ are positive integers
+    \item $0<a<b$
+    \item $r<a$ and $0 \leq r < 1$
+\end{itemize}
+
+Rearrange
+\begin{align*}
+    \frac{a}{b} = \frac{1}{q + \frac{r}{a}}\\
+    \frac{a}{b} = (q+{r}{a})^{-1} \\
+    \frac{a}{b}(q+\frac{r}{a}) = (q+\frac{r}{a})^{-1}(q+\frac{r}{a}) \\
+    \frac{a}{b}(q+\frac{r}{a}) = 1 \\
+    \frac{qa}{b} + \frac{ra}{ab} = 1 \\
+    \frac{qa}{b} + \frac{r}{b} = 1 \\
+    \frac{qa+r}{b} = 1
+\end{align*}
+
+Solve for q
+\begin{align*}
+    \frac{qa+r}{b}=1 \\
+    qa+r = b \\
+    qa = b-r \\
+    q = \frac{b-r}{a} \\
+    q = \frac{b}{a} - \frac{r}{a}
+\end{align*}
+Since $r<a$ %and $0\leq r < 1$ 
+and $a$ is an integer greater than $0$
+this implies $\frac{r}{a} < r$. Of which, $r$ ranges from $(0,1)$. 
+Implying $\frac{r}{a} \le r \le 1$.
+
+Given, $q=\frac{b}{a} - \frac{r}{a}$ and that $q$ is an integer while 
+$\frac{r}{a}$ is a fraction between $0$ and $1$. q 
+
+Solve for r
+\begin{align*}
+    \frac{qa+r}{b} = 1 \\
+    qa+r = b \\
+    r = b-qa \\
+    r = b -  a(\lfloor \frac{b}{a} \rfloor)
+\end{align*}
+
+\textbf{Question 2}
+
+\begin{algorithm}
+\end{algorithm}
+
+
+
+
+
+\end{document}
