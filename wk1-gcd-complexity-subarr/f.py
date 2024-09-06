@@ -110,7 +110,12 @@ def max_sub_sum_tbl_C(arr):
     for i in range(n):
         j = 0
         while (i + (math.pow(2,j)) <= n):
-            C[i,j] = max(arr[i:i+j + 1])
+            if j==0 :
+                C[i,j] = arr[i]
+            else:
+                stop = i + (2**j) - 1 
+                #print('stop',stop)
+                C[i,j] = max(arr[i:stop + 1])
 #        for j in range(n):
 #            if (i + (2**j) <= n):
 #            # +1 for inclusive stop idx
@@ -119,3 +124,22 @@ def max_sub_sum_tbl_C(arr):
 #                C[i,j] = 0 
             j+=1
     return C
+
+def C_recurrence(C):
+    n = C.shape[0]
+    print('n',n)
+    for i in range(n):
+        j = 0
+        while (i + (math.pow(2,j)) < n):
+            if (C[i, j+1] == 0):
+                None
+            else:
+                a = C[i,j]
+                b = C[i, j +1]
+                c = C[i + (2**j), j]
+                print('C[i, j+1]',b,'\tC[i,j]',a,'\tC[i + 2^j, j]',c,'\ti',i,'\tj',j)
+          
+            #print('i',i,'j',j,'a',a,'b',b,'c',c)
+            j+=1
+    return 
+

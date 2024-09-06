@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from f import cont_frac, cont_frac2ints, cont_frac_aprx, gcd, lcm, add_fracs, max_sub_sum_tbl_B, max_sub_sum_tbl_C
+from f import cont_frac, cont_frac2ints, cont_frac_aprx, gcd, lcm, add_fracs, max_sub_sum_tbl_B, max_sub_sum_tbl_C, C_recurrence
 import numpy as np
 ### Q1b
 print('BEGIN Q1b')
@@ -72,10 +72,19 @@ print()
 print('BEGIN Q3a')
 print(max_sub_sum_tbl_B([1,-3,2,1]))
 print(max_sub_sum_tbl_C([1,-3,2,1]))
-for n in range(1, 101):
-    arr = max_sub_sum_tbl_C(np.ones([n]))
-    #print('arr_size', i, 'tbl_size', np.sum(arr))
-    print(n, np.sum(arr))
+#for n in range(1, 101):
+#    arr = max_sub_sum_tbl_C(np.ones([n]))
+#    #print('arr_size', i, 'tbl_size', np.sum(arr))
+#    print(n, np.sum(arr))
+#arr = np.ones(8)
+#x = max_sub_sum_tbl_C(arr)
+#print(x)
+x = [1,-3,-7,9,12,-2,5,7]
+C = max_sub_sum_tbl_C(x)
+print('q3ii')
+print('C')
+print(C)
+C_recurrence(C)
 print('END Q3a')
 
 
