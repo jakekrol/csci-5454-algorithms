@@ -106,16 +106,16 @@ def max_sub_sum_tbl_B(arr):
 
 def max_sub_sum_tbl_C(arr):
     n = len(arr)
-    C = np.zeros([n,n],dtype=int)
+    C = np.zeros([n,math.ceil(math.log2(n+1))],dtype=int)
     for i in range(n):
         j = 0
         while (i + (math.pow(2,j)) <= n):
-            if j==0 :
-                C[i,j] = arr[i]
-            else:
-                stop = i + (2**j) - 1 
-                #print('stop',stop)
-                C[i,j] = max(arr[i:stop + 1])
+            #if j==0 :
+                #C[i,j] = arr[i]
+            #else:
+            stop = i + (2**j)
+            #print('stop',stop)
+            C[i,j] = max(arr[i:stop]) # inclusive stop
 #        for j in range(n):
 #            if (i + (2**j) <= n):
 #            # +1 for inclusive stop idx
@@ -130,16 +130,18 @@ def C_recurrence(C):
     print('n',n)
     for i in range(n):
         j = 0
-        while (i + (math.pow(2,j)) < n):
-            if (C[i, j+1] == 0):
-                None
-            else:
-                a = C[i,j]
-                b = C[i, j +1]
-                c = C[i + (2**j), j]
-                print('C[i, j+1]',b,'\tC[i,j]',a,'\tC[i + 2^j, j]',c,'\ti',i,'\tj',j)
-          
+        while (i + (math.pow(2,j)) <= n):
             #print('i',i,'j',j,'a',a,'b',b,'c',c)
+            print('i',i,'j',j)
+            a = C[i,j]
+            b = C[i, j+1]
+            c = C[i + (2**j), j]
+            print('C[i, j+1]',b,'\tC[i,j]',a,'\tC[i + 2^j, j]',c,'\ti',i,'\tj',j)
+          
             j+=1
     return 
+
+def C_lookup(C,l,u):
+    j = math.ceil(math.log2(u-l+1))
+    return max(C[l,j], C[l + j - 1, j])
 
